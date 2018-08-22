@@ -27,8 +27,14 @@ object testJmsObj {
   def main(args: Array[String]): Unit = {
     println("testJmsObj main start")
 
-    val confFileName = System.getProperty("confFile")
-    println(s"Config file (-DconfFile param): $confFileName")
+    val confFileName = System.getProperty("confFile") match {
+      case null =>
+        println(s"-DconfFile param is empty. Used default file 'testJmsObj.conf'")
+        "testJmsObj.conf"
+      case everythingElse =>
+        println(s"Config file (-DconfFile param): $everythingElse")
+        everythingElse
+    }
 
     val config = ConfigFactory.parseFile(new File(confFileName))
 
