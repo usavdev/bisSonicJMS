@@ -1,5 +1,4 @@
 import sbt._
-
 name := "testJms"
 
 version := "0.1"
@@ -24,3 +23,9 @@ unmanagedBase in Compile := baseDirectory.value / "custom_lib"
 
 //libraryDependencies += "javax.jms" % "jms" % "1.1"
 //libraryDependencies += "progress.message" % "jms" % "1.1"
+
+libraryDependencies ++= Seq(
+  "com.typesafe.akka" %% "akka-http" % "10.1.4",
+  "com.typesafe.akka" %% "akka-actor" % "2.5.14",
+  "com.typesafe.akka" %% "akka-stream" % "2.5.14"
+)
