@@ -20,7 +20,7 @@ object RestServ {
           }
         }
       } ~
-      path("path2") {
+      path("path3") {
         get {
           complete {
             HttpEntity("path2")
